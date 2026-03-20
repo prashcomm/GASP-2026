@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Base Styles - Optimized for Tally Injection */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Google Sans', Arial, sans-serif;
+            background: transparent; /* Allows Tally background to show through */
+            color: #202124;
+            line-height: 1.5;
+            padding: 10px;
+        }
+
+        /* Branding Header Card */
+        .header {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1);
+        }
+
+        .header-top {
+            background: #1a73e8;
+            padding: 2.5rem 1.75rem 2rem;
+        }
+
+        .g-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1.2rem;
+        }
+
+        .g-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .g-wordmark {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.3px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            font-size: 11.5px;
+            color: #fff;
+            padding: 4px 14px;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+
+        h1 strong {
+            font-weight: 600;
+        }
+
+        .hero-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            max-width: 620px;
+        }
+
+        /* Section Styling */
+        .section {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #5f6368;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 14px;
+            background: #1a73e8;
+            border-radius: 2px;
+        }
+
+        /* Video Challenge List */
+        .prompt-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .prompt-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e8eaed;
+        }
+
+        .p-num {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #1a73e8;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .p-content {
+            flex: 1;
+        }
+
+        .p-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #202124;
+            margin-bottom: 3px;
+        }
+
+        .p-desc {
+            font-size: 13px;
+            color: #5f6368;
+            line-height: 1.5;
+        }
+
+        /* Recording Guidelines Grid */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .rule-card {
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .rule-do {
+            background: #e6f4ea;
+            border: 1px solid #ceead6;
+            color: #137333;
+        }
+
+        .rule-dont {
+            background: #fce8e6;
+            border: 1px solid #f5c6c3;
+            color: #c5221f;
+        }
+
+        .rule-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-top {
+                padding: 2rem 1.25rem;
+            }
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Branding Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="g-logo">
+                <div class="g-dot" style="background:#ea4335"></div>
+                <div class="g-dot" style="background:#fbbc04"></div>
+                <div class="g-dot" style="background:#34a853"></div>
+                <div class="g-dot" style="background:#4285f4"></div>
+                <span class="g-wordmark">Google Student Ambassador Program 2026</span>
+            </div>
+            <div class="badge">✓ Shortlisted candidate</div>
+            <h1>Congratulations — <strong>you made the cut.</strong><br>Now make it iconic.</h1>
+            <p class="hero-desc">
+                Google is looking for sharp, well-connected students across India to represent Gemini on their campuses. As a Student Ambassador, you'll lead activations, build community, and help shape how students across India experience AI.
+            </p>
+        </div>
+    </header>
+
+    <!-- Challenge Section -->
+    <section class="section">
+        <div class="section-title">Your 5-move video challenge</div>
+        <p style="font-size:13px; color:#5f6368; margin-bottom: 1.25rem;">
+            Record a single video <strong>under 3 minutes</strong> covering all five moves in order. Make every second count.
+        </p>
+        <div class="prompt-list">
+            <div class="prompt-item">
+                <div class="p-num">1</div>
+                <div class="p-content">
+                    <div class="p-title">Intro</div>
+                    <div class="p-desc">Introduce yourself in 30 seconds as if speaking to 500 freshers at orientation.</div>
+                </div>
+            </div>
+            <div class="prompt-item">
+                <div class="p-num">2</div>
+                <div class="p-content">
+                    <div class="p-title">Pitch</div>
+                    <div class="p-desc">Pick any object near you and pitch it as if it's a Google product.</div>
+                </div>
+            </div>
+            <div class="prompt-item">
+                <div class="p-num">3</div>
+                <div class="p-content">
+                    <div class="p-title">Campus Insight</div>
+                    <div class="p-desc">What's one thing about your campus an outsider wouldn't get? How would you use that for this programme?</div>
+                </div>
+            </div>
+            <div class="prompt-item">
+                <div class="p-num">4</div>
+                <div class="p-content">
+                    <div class="p-title">Failure</div>
+                    <div class="p-desc">Tell us about a time you failed publicly. What did you learn?</div>
+                </div>
+            </div>
+            <div class="prompt-item">
+                <div class="p-num">5</div>
+                <div class="p-content">
+                    <div class="p-title">Challenge</div>
+                    <div class="p-desc">Make Gemini the most talked-about thing on your campus in 7 days, zero budget. What do you do?</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guidelines Section -->
+    <section class="section">
+        <div class="section-title">Recording guidelines</div>
+        <div class="rules-grid">
+            <div class="rule-card rule-do">
+                <span class="rule-tag">Do</span>
+                Film horizontally (landscape mode) — no vertical videos.
+            </div>
+            <div class="rule-card rule-do">
+                <span class="rule-tag">Do</span>
+                Find good lighting — face a window or lamp, avoid backlight.
+            </div>
+            <div class="rule-card rule-do">
+                <span class="rule-tag">Do</span>
+                Use a quiet space — clear, audible sound is essential.
+            </div>
+            <div class="rule-card rule-do">
+                <span class="rule-tag">Do</span>
+                Keep under 3 minutes and answer all five questions.
+            </div>
+            <div class="rule-card rule-dont">
+                <span class="rule-tag">Don't</span>
+                Don't read from a script — we want the real you.
+            </div>
+            <div class="rule-card rule-dont">
+                <span class="rule-tag">Don't</span>
+                No filters, effects, or heavy background music.
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
