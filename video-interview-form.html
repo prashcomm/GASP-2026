@@ -324,5 +324,17 @@
         </div>
     </section>
 
+<script>
+  function sendHeight() {
+    const height = document.documentElement.scrollHeight;
+    window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+  }
+
+  // Send height on load, on resize, and every second (to catch image loads)
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  setInterval(sendHeight, 1000); 
+</script>
+
 </body>
 </html>
