@@ -1,0 +1,125 @@
+<!-- 1. IMPORT GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- 2. INJECT CUSTOM BRANDED CSS -->
+<style>
+  /* Base Tally App Styling */
+  .tally-app, .tally-page, body {
+    font-family: 'Google Sans', 'Outfit', 'Roboto', sans-serif !important;
+    background-color: #f8f9fa !important;
+    color: #202124 !important;
+  }
+
+  /* Custom Header Styling (Matches your original HTML design) */
+  #custom-brand-header {
+    background: #fff;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05, #34A853) 1;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  #custom-brand-header img {
+    height: 36px; /* Scales your Logo 04.png */
+    width: auto;
+  }
+
+  #custom-brand-header .title-group h1 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #202124;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  #custom-brand-header .title-group span {
+    font-size: 0.85rem;
+    color: #5f6368;
+  }
+
+  #custom-brand-header .badge {
+    background: linear-gradient(135deg, #4285F4, #34A853);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+    letter-spacing: 0.5px;
+  }
+
+  /* Mobile adjustments for the header */
+  @media(max-width: 600px) {
+    #custom-brand-header {
+      padding: 12px 16px;
+      flex-wrap: wrap;
+    }
+    #custom-brand-header .badge {
+      display: none; /* Hides badge on very small screens to save space */
+    }
+  }
+
+  /* Google Material UI Form Overrides for Tally */
+  .tally-block {
+    background: #fff !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1) !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* Button Styling */
+  .tally-button {
+    background: linear-gradient(135deg, #4285F4, #1a73e8) !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  /* Input Styling */
+  input[type="text"], input[type="email"], textarea, select {
+    border: 1.5px solid #dadce0 !important;
+    border-radius: 8px !important;
+  }
+
+  input[type="text"]:focus, input[type="email"]:focus, textarea:focus, select:focus {
+    border-color: #4285F4 !important;
+    box-shadow: 0 0 0 3px rgba(66,133,244,.12) !important;
+  }
+
+  /* Hide Tally's Default Header/Cover to prevent duplication */
+  .tally-cover, .tally-form-title {
+    display: none !important;
+  }
+</style>
+
+<!-- 3. INJECT THE HEADER INTO THE DOM -->
+<script>
+  // Wait for the Tally form to load, then inject the custom header
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    // Create the header element
+    var header = document.createElement("header");
+    header.id = "custom-brand-header";
+    
+    // REPLACE THE IMG SRC URL BELOW WITH YOUR HOSTED LOGO 04.png URL
+    header.innerHTML = `
+      <img src="Logo-04.png" alt="Gemini Logo" />
+      <div class="title-group">
+        <h1>Google Student Ambassador Program</h1>
+        <span>Campus Interviews · March 2026</span>
+      </div>
+      <div class="badge">MAR 2026 · GAMERS</div>
+    `;
+
+    // Insert it at the very top of the body
+    document.body.insertBefore(header, document.body.firstChild);
+  });
+</script>
